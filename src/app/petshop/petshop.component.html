@@ -1,0 +1,118 @@
+<header>
+    <div class="logo"></div>
+</header>
+
+<article>
+    <aside>
+        <ul>
+            <li><input class="add add-dog" type="button" (click)="showForm('dog')"></li>
+            <li><input class="add add-cat" type="button" (click)="showForm('cat')"></li>
+            <li><input class="add add-hamster" type="button" (click)="showForm('hamster')"></li>
+        </ul>
+
+        <div *ngIf="showFormAddPet" class="form-add-pet">
+            <h3>Add {{typeOfPet}}</h3>
+
+            <form [formGroup]="formAddPet">
+                <mat-form-field *ngIf="typeOfPet !== 'hamster'">
+                    <input matInput type="text" placeholder="Name" formControlName="name" minlength="3">
+                    <mat-error>Min name length: 3</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="number" placeholder="Price" formControlName="price" min="1">
+                    <mat-error>Min price: $10</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="color" placeholder="Color" formControlName="color">
+                </mat-form-field>
+
+                <mat-slider *ngIf="typeOfPet !== 'dog'" formControlName="fluffy"
+                    thumbLabel
+                    color="primary"
+                    [displayWith]="levelOfFluffy"
+                    tickInterval="1"
+                    min="1"
+                    max="3">
+                </mat-slider>
+
+
+                <button class="add-pet" mat-flat-button color="primary" [disabled]="!formAddPet.valid" (click)="addPet()">Add</button>
+            </form>
+        </div>
+    </aside>
+
+    <!--lists from pets collection-->
+    <section class="pet-shop-view">
+        <div>
+            <h3>Cats</h3>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let pet of cats">
+                    <a matLine>{{ pet | info }}</a>
+                    <button mat-icon-button color="primary" (click)="delPet(pet._id)">
+                        <mat-icon>delete_forever</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-nav-list>
+        </div>
+
+        <div>
+            <h3>High cost</h3>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let pet of expensive">
+                    <a matLine>{{ pet | info }}</a>
+                    <button mat-icon-button color="primary" (click)="delPet(pet._id)">
+                        <mat-icon>delete_forever</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-nav-list>
+        </div>
+
+        <div>
+            <h3>Fluffy and white</h3>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let pet of fluffyOrWhite">
+                    <a matLine>{{ pet | info }}</a>
+                    <button mat-icon-button color="primary" (click)="delPet(pet._id)">
+                        <mat-icon>delete_forever</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-nav-list>
+        </div>
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="active-img"></div>
+<div class="active-img"></div>
+<div class="active-img"></div>

@@ -1,0 +1,173 @@
+@firstColor:#3f51b5;
+@secondColor:#53aeea;
+@thirdColor: #e4e4e4;
+
+header{
+  margin:10px 0 40px 0;
+  padding:5px 0;
+  border-bottom: 2px solid white;
+
+  .logo{
+    width:330px;
+    height: 100px;
+    .bg('../../assets/img/logo.png'; @s:cover);
+  }
+}
+
+aside {
+  width:30%;
+  margin:0;
+  float:left;
+  position: relative;
+
+  ul {
+    margin: 0 auto;
+    list-style-type: none;
+
+    li:after{
+      margin: 20px 0;
+      .after;
+    }
+
+    .add {
+      width: 100px;
+      height: 100px;
+      border: none;
+      outline: inherit;
+      float:left;
+
+      &:hover {cursor: pointer;}
+    }
+
+    .add-cat {
+      .bg('../../assets/img/cat_default2.png'; @s:cover);
+      &:active {.bg('../../assets/img/cat_active2.png'; @s:cover);}
+    }
+
+    .add-dog {
+      .bg('../../assets/img/dog_default.png'; @s:cover);
+      &:active {.bg('../../assets/img/dog_active.png'; @s:cover);}
+    }
+
+    .add-hamster {
+      .bg('../../assets/img/hamster_default.png'; @s:cover);
+      &:active {.bg('../../assets/img/hamster_active.png'; @s:cover);}
+    }
+  }
+
+  .form-add-pet {
+    width: 47%;
+    margin: 50px 5px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px .1px black;
+    background-color: rgba(255, 255, 255, .4);
+    position: absolute;
+    top: 0;
+    left: 45%;
+
+    h3 {
+      text-align: center;
+      font-size: 20px;
+      margin: 5px;
+      padding: 5px;
+      color: @firstColor;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      padding:10px;
+      border-radius: 5px;
+      background-color: white;
+
+      .add-pet {
+        margin: 2px;
+        padding: 5px;
+        min-width: 45%;
+        line-height: 24px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.pet-shop-view{
+  width:65%;
+  float:left;
+
+  div{
+    width:31%;
+    padding:5px;
+    border-radius: 5px;
+    float:left;
+    margin:50px 2px;
+    box-shadow: 1px 1px 10px .1px black;
+    background-color: rgba(255, 255, 255, .4);
+
+    &:nth-of-type(2){ margin-top:0;}
+    &:nth-of-type(3){ margin-top:100px;}
+
+    h3{
+      text-align: center;
+      font-size:20px;
+      margin:5px;
+      padding:5px;
+      color:@firstColor;
+    }
+
+    .mat-nav-list {
+      padding:0;
+      border-radius: 5px;
+      background-color: white;
+      .mat-list-item {
+        border-bottom: 1px solid @thirdColor;
+      }
+    }
+  }
+}
+
+.active-img{
+  width:1px;
+  height:1px;
+  opacity: 1;
+  position: absolute;
+  top:0;
+  right:0;
+
+  &:nth-of-type(1) {.bg('../../assets/img/dog_active.png'; @s:cover);}
+  &:nth-of-type(2) {.bg('../../assets/img/cat_active2.png'; @s:cover);}
+  &:nth-of-type(3) {.bg('../../assets/img/hamster_active.png'; @s:cover);}
+}
+
+
+
+
+/*my mixings*/
+.after{
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.divAbs(@top: 0; @left: 0){
+  position:absolute;
+  bottom:0;
+  left:0;
+  margin-top:@top;
+  margin-left:@left;
+}
+
+.bg(@url; @r: no-repeat; @s: auto; @a: scroll){
+  background: url(@url) @r top center @a;
+  -webkit-background-size: @s;
+  -moz-background-size: @s;
+  -o-background-size: @s;
+  background-size: @s;
+}
+
+.br(@font: 3px; @color: @secondColor){
+  border:@font solid @color;
+}

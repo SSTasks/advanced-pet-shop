@@ -1,0 +1,56 @@
+[
+  [
+    {
+      "name": "Dog №1",
+      "price": "250",
+      "color": "#333333"
+    },
+    {
+      "name": "Dog №2",
+      "price": "230",
+      "color": "#111111"
+    },
+    {
+      "name": "Dog №3",
+      "price": "240",
+      "color": "#ffffff"
+    }
+  ],
+  [
+    {
+      "name": "Cat №1",
+      "price": "220",
+      "color": "#333333",
+      "fluffy": true
+    },
+    {
+      "name": "Cat №2",
+      "price": "262",
+      "color": "#111111",
+      "fluffy": false
+    },
+    {
+      "name": "Cat №3",
+      "price": "240",
+      "color": "#ffffff",
+      "fluffy": false
+    }
+  ],
+  [
+    {
+      "price": "220",
+      "color": "#333333",
+      "fluffy": true
+    },
+    {
+      "price": "230",
+      "color": "#111111",
+      "fluffy": false
+    },
+    {
+      "price": "340",
+      "color": "#ffffff",
+      "fluffy": false
+    }
+  ]
+]

@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+//@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+@firstColor:#384c5b;
+@secondColor:#53aeea;
+@thirdColor:#f0f0f0;
+
+body{
+  margin:0;
+  width:100%;
+  height:100%;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  .bg('./assets/img/body.jpg'; @s:cover; @a:fixed);
+}
+
+/*my mixings*/
+.after{
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.divAbs(@top: 0; @left: 0){
+  position:absolute;
+  bottom:0;
+  left:0;
+  margin-top:@top;
+  margin-left:@left;
+}
+
+.bg(@url; @r: no-repeat; @s: auto; @a: scroll){
+  background: url(@url) @r top center @a;
+  -webkit-background-size: @s;
+  -moz-background-size: @s;
+  -o-background-size: @s;
+  background-size: @s;
+}
+
+.br(@font: 3px; @color: @secondColor){
+  border:@font solid @color;
+}
